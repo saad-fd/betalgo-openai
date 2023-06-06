@@ -42,8 +42,14 @@ for (int i = 0; i < 2; i++)
 
     int numbering = i + 1;
     string formattedNumber = numbering.ToString("D3");  
-    string currentDirectory = Directory.GetCurrentDirectory();  
-    File.WriteAllText(Path.Combine(currentDirectory, $"Output/Conversation_{formattedNumber}.jsonl"), apiResponse);
+    string currentDirectory = Directory.GetCurrentDirectory();
+    string outputPath = Path.Combine(currentDirectory, "Output");
+
+    // Create the "Output" directory if it doesn't exist
+    if (!Directory.Exists(outputPath))
+        Directory.CreateDirectory(outputPath);
+
+    File.WriteAllText(Path.Combine(outputPath, $"Conversation_{formattedNumber}.jsonl"), apiResponse);
 
     Console.WriteLine($"File 'Conversation_{formattedNumber}.jsonl' has been saved");
 

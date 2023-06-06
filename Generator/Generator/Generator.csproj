@@ -17,4 +17,10 @@
 
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="ApiSettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
